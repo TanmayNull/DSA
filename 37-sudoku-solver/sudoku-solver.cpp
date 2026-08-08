@@ -1,11 +1,33 @@
 class Solution {
 public:
     bool isValid(vector<vector<char>>& board,int row, int col,char k){
+        int duprow=row;
+        int dupcol=col;
+        while(row>=0){
+            if(board[row][col]==k) return false;
+            row--;
+        }
+        row = duprow;
+        col = dupcol;
+        while(row<9){
+            if(board[row][col]==k) return false;
+            row++;
+        }
+        row = duprow;
+        col = dupcol;
+        while(col>=0){
+            if(board[row][col]==k) return false;
+            col--;
+        }
+        row = duprow;
+        col = dupcol;
+        while(col<9){
+            if(board[row][col]==k) return false;
+            col++;
+        }
+        row = duprow;
+        col = dupcol;
     for(int i=0;i<9;i++){
-        if(board[i][col]==k)
-        return false;
-        if(board[row][i]==k)
-        return false;
         if(board[3*(row/3)+i/3][3*(col/3)+i%3]==k)
         return false;
     }
