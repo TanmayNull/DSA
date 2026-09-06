@@ -41,7 +41,6 @@ public:
         }
         
         for(int i=m-2;i>=0;i--){
-          
             for(int j1=0;j1<n;j1++){
                 for(int j2=0;j2<n;j2++){  
                     int maxi=-1e8;            
