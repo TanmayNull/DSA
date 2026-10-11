@@ -12,21 +12,18 @@ public:
             }
         }
         vector<int>ans;
+        int prev=-1;
         int minLen=INT_MAX;
         for(int i= max(left, 2);i<=right;i++){
             if(isPrime[i])
             {
-            int j=i+1;
-            
-                while(j<=right&&isPrime[j]!=true)
-                {
-                    j++;
-                }
-            if(j<=right&&j-i<minLen)
+            if(prev!=-1&&i-prev<minLen)
             {
-                ans={i,j};
-                minLen=j-i;
+                ans={prev,i};
+                minLen=i-prev;
+                 if (minLen == 1) break;
             }
+            prev=i;
             }
         }
         if (ans.empty()) return {-1, -1};
